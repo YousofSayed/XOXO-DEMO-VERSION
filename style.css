@@ -23,6 +23,11 @@ body {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   transition: background-color 0.5s;
 }
+@media (max-width) {
+h1{
+font-size:1.5em !important ;
+} 
+} 
 .header {
   position: relative;
   top: 0;
