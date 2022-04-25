@@ -73,6 +73,7 @@ left.forEach((e) => {
         ".chose .countainer h2"
       ).innerHTML = `Turn Off [ O ]`;
     }
+music.play()
   };
 });
 
@@ -94,6 +95,7 @@ right.forEach((e) => {
         ".chose .countainer h2"
       ).innerHTML = `Turn Off [ X ]`;
     }
+music.play()
   };
 });
 
