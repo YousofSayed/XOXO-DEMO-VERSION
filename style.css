@@ -67,6 +67,7 @@ body {
 }
 @media (max-width:767px) {
   .header .container .middle {
+    
     font-size: 22px;
   }
   .header .container .middle .bar{
