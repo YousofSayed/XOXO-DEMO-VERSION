@@ -14,20 +14,15 @@
 }
 body {
   min-height: 97vh;
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 12px; */
   overflow: hidden;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   transition: background-color 0.5s;
 }
-@media (max-width) {
-h1{
-font-size:1.5em !important ;
-} 
-} 
+@media (max-width:664px) {
+  h1{
+    font-size: 1.5em !important;
+  }
+}
 .header {
   position: relative;
   top: 0;
@@ -236,6 +231,9 @@ font-size:1.5em !important ;
   color: rgb(103, 85, 221);
   opacity: 0;
 }
+.choseCountainerH2Toggle{
+  color: wheat !important;
+}
 .circle {
   position: relative;
   display: flex;
@@ -374,84 +372,123 @@ span .X::after {
   cursor: no-drop;
 }
 
-.footer {
-  position: absolute;
-  bottom: -2px;
-  width: 100%;
-  height: 37px;
-  background-color: rgb(65, 191, 241);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
-  letter-spacing: 1.2px;
-  color: #ddd;
+.score .countainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 120px;
+  font-size: 24px;
+  color: #710193;
+}
+.scoreCountainerToggle{
+  color: wheat !important;
+}
+.score .countainer .sco-x ,.score .countainer .sco-o{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.sco-o{
+  flex-direction: row-reverse;
+}
+
+.sco-o span, .sco-x span{
   font-size: 20px;
-  font-weight: bold;
-  z-index: 99999999999999999999999999; /*I did it man lol*/
 }
-
-.draw-div {
-  bottom: -24px;
-  width: 280px;
-  height: 50px;
-  margin: auto;
-  /* background-color: #333; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  position: relative;
-  transition: .5s;
-  font-size: 29px;
+.score .countainer .counter{
+ width: 60px;
+ height: 50px;
+ border: #710193 2.5px solid;
+ border-radius: 10px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ color: #333;
+ font-weight: 800 !important;
 }
-@media (max-width:767px) {
-  .draw-div{
-  bottom: -24px;
-
-  } 
+.scoreCountainerCounterToggle{
+  border: #b65fcf 2.5px solid  !important;
+  color: #b65fcf !important;
+  background-color: #fff !important;
 }
-.draw-div-toggle{
-  color:white;
-}
-.draw-div .draw {
-  padding: 7px 45px;
+.clear button{
+  padding: 8px 20px;
   border: none;
-  background-color: unset;
-  border-radius: 30px;
-  color: #333;
+  background-color: #710193;
+  letter-spacing: 2px;
+  font-size: 19px;
+  color: #ddd;
+  border-radius: 20px;
   cursor: pointer;
-  transition: 0.5s;
   position: relative;
-  overflow: hidden;
-border:2px solid #333 ;  
--webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-tap-highlight-color: rgba(221, 221, 221, 0);
 }
-.draw-toggle{
-  border:#fff 2px solid !important;
-  color:white !important;
+.clearToggle{
+  background-color: #b65fcf !important;
 }
-.draw-div .draw p {
-  transition: .5s;
-  }
-.draw-div .draw:hover p {
-color: #ffd231;
-}
-.draw-div .draw::after {
-  content: "";
+.clear button::after{
+  content: '';
   position: absolute;
-  border-radius: 30px;
-  width: 100%;
-  height: 102%;
-  top: 0;
-  background-color: rgb(65, 191, 241);
-  left: -100%;
-  z-index: -1;
-  transition: 0.5s;
+  width: 10px;
+  height: 2px;
+  background-color: #710193;
+  left: -10px;
+  top: 50%;
 }
-
-.draw-div .draw:hover::after {
-  left: 0;
+.clear button::before{
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 2px;
+  background-color: #710193;
+  right: -10px;
+  top: 50%;
+}
+@media (min-width:300px) {
+  body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .header{
+    position: absolute;
+  }
+  .play-area{
+    padding-bottom: 30px;
+    width: 100%;
+  }
+  .chose{
+    width: 100%;
+  }
+.play-area span{
+  padding: 30px 30px;
+}
+  .score .countainer{
+   gap: 10px;
+    font-size: 15px;
+    width: 100%;
+  }
+  .score .countainer .sco-x ,.score .countainer .sco-o{
+    display: flex;
+    gap: 5px ;
+    align-items: center;
+  }
+  .score .countainer .counter{
+    width: 30px;
+    height: 30px;
+    color: #333;
+   }
+}
+@media(min-width:620px){
+  .play-area{
+    padding-bottom: 40px;
+    width: 50%;
+  }
+  .play-area span{
+    padding: 40px;
+  }
 }
 @keyframes opacity {
   0% {
@@ -469,12 +506,29 @@ color: #ffd231;
     opacity: 1;
   }
 }
+.footer {
+  position: absolute;
+  bottom: -2px;
+  width: 100%;
+  height: 37px;
+  background-color: rgb(65, 191, 241);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  letter-spacing: 1.2px;
+  color: #ddd;
+  font-size: 20px;
+  font-weight: bold;
+  z-index: 99999999999999999999999999; /*I did it man lol*/
+}
 @keyframes opacity3 {
   0% {
     opacity: 1;
   }
   100% {
     opacity: 0;
+   
   }
 }
 @keyframes rotate {
