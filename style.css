@@ -459,6 +459,9 @@ span .X::after {
     padding-bottom: 30px;
     width: 100%;
   }
+  .play-area span{
+   padding:60px 20px !important;
+  }
   .chose{
     width: 100%;
   }
