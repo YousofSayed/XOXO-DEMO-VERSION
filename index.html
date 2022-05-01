@@ -5,31 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="all.min.css"/>
-    <link rel="stylesheet" href="normalize.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="all.min.css" />
+    <link rel="stylesheet" href="normalize.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"
+      integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>XOXO</title>
   </head>
 
-        <script>
-     window.addEventListener("load",function() {
-  // Set a timeout...
-  setTimeout(function(){
-    // Hide the address bar!
-    window.scrollTo(0, 1);
-  }, 0);
-}); 
-
-var preventDefault = function(e) {
-    e.preventDefault();
-    return false;
-};
-document.addEventListener('touchmove',preventDefault,false);
-document.body.addEventListener('touchmove',preventDefault,true);
-window.addEventListener('touchmove',preventDefault,true);
-    </script>
-
+  </script>
   <body>
     <!-- audio  -->
     <audio class="tine" src="spellhit1.wav"></audio>
@@ -43,79 +37,87 @@ window.addEventListener('touchmove',preventDefault,true);
           <p class="c-x">X</p>
           <p class="c-o">O</p>
         </div>
-<div class="middle">
-  
-  <div class="bar">
-    <div class="col">
-      <i class="fa-solid fa-circle-play play"></i>
-      <p>PLAY</p>
-    </div>
-    <div class="col">
-      <i class="fa-solid fa-pause pause"></i>
-      <p>PAUSE</p>
-    </div>
-  </div>
-      </div>
+        <div class="middle">
+          <div class="bar">
+
+            <i class="fa-solid fa-circle-play play"></i>
+           
+            <i class="fa-solid fa-pause pause"></i>
+          
+          </div>
+        </div>
         <div class="right">
           <i class="fa-solid fa-moon"></i>
-          <div class="dark-mode" id="dark-mode"><div class="switch" id="switch"></div></div>
+          <div class="dark-mode" id="dark-mode">
+            <div class="switch" id="switch"></div>
+          </div>
         </div>
       </div>
     </div>
     <!-- audio  -->
+
+    <!-- chose -->
    
+        <div class="chose">
+          <div class="countainer">
+            <div class="part1">
+              <div class="left">
+                <span class="circle"></span>
+              </div>
+              <div class="right">
+                <span class="X"></span>
+              </div>
+            </div>
 
-    <!-- chose -->
-    <div class="perant">
-      <div class="countainer">
-    <div class="chose">
-      <div class="countainer">
-      <div class="part1">
-      <div class="left">
-        <span class="circle"></span>
-      </div>
-      <div class="right">
-        <span class="X"></span>
-      </div>
-    </div>
-
-      <h1>Press On Your Choice</h1>
-      <h2>Turn of[]</h2>
-
-  </div>
-    </div>
-    <!-- chose -->
-
-    <!-- paly-Area  -->
-    <div class="play-area">
-      <div class="countainer">
-      <span class="one"></span>
-      <span class="two"></span>
-      <span class="three"></span>
-      <span class="four"></span>
-      <span class="five"></span>
-      <span class="six"></span>
-      <span class="seven"></span>
-      <span class="eight"></span>
-      <span class="nine"></span>
-    </div>
-    </div>
-    <!-- paly-Area  -->
-    <!-- winner-page  -->
-    <div class="winner">
-      <div class="card">
-        <p>'Winner Winner Chicken Dinner'</p>
-        <h2></h2>
-        <div class="buttons">
-          <button>OK</button>
+            <h1>Press On Your Choice</h1>
+            <h2>Turn of[]</h2>
+          </div>
         </div>
-      </div>
-    </div>
-    <!-- winner-page  -->
+        <!-- chose -->
 
-    <div class="draw-div">If You <button class="draw"><p>Draw</p></button></div>
-  </div>
-  </div>
+        <!-- paly-Area  -->
+        <div class="play-area">
+          <div class="countainer">
+            <span class="one"></span>
+            <span class="two"></span>
+            <span class="three"></span>
+            <span class="four"></span>
+            <span class="five"></span>
+            <span class="six"></span>
+            <span class="seven"></span>
+            <span class="eight"></span>
+            <span class="nine"></span>
+          </div>
+        </div>
+        <!-- paly-Area  -->
+        <!-- winner-page  -->
+        <div class="winner">
+          <div class="card">
+            <p>'Winner Winner Chicken Dinner'</p>
+            <h2></h2>
+            <div class="buttons">
+              <button>OK</button>
+            </div>
+          </div>
+        </div>
+        <!-- winner-page  -->
+
+      <!-- Score -->
+        <div class="score">
+          <div class="countainer">
+          <div class="sco-x">
+            <span> [X]</span>
+            <counter class="counter co-x" id="counter"></counter>
+          </div>
+          <div class="clear"><button>CLEAR</button></div>
+          <div class="sco-o">
+            <span>[O] </span>
+            <counter class="counter co-o" id="counter"></counter>
+          </div>
+        </div>
+        </div>
+      <!-- Score -->
+     
     <!-- footer  -->
     <div class="footer">
       <p>Powered By Yousef-Sayed</p>
