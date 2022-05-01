@@ -2,7 +2,6 @@ let left = document.querySelectorAll(".left span");
 let right = document.querySelectorAll(".right span");
 
 let playArea = document.querySelector(".play-area ");
-console.log(playArea);
 
 let winner = document.querySelector(".winner");
 let button = document.querySelector(".winner button");
@@ -18,8 +17,7 @@ let header = document.querySelector(".header");
 window.addEventListener(
   "load",
   function () {
-    window.localStorage.clear();
-    winner.style.cssText=`display:none`
+    winner.style.cssText = `display:none`;
   },
   { once: true }
 );
@@ -54,6 +52,11 @@ seven.appendChild(div7);
 eight.appendChild(div8);
 nine.appendChild(div9);
 
+let coO = document.querySelector(".co-o");
+let coX = document.querySelector(".co-x");
+
+let innerWinner = document.querySelector(".winner .card h2").innerHTML;
+
 left.forEach((e) => {
   e.onclick = function (e) {
     window.localStorage.setItem("input", e.target.className);
@@ -72,8 +75,13 @@ left.forEach((e) => {
       document.querySelector(
         ".chose .countainer h2"
       ).innerHTML = `Turn Off [ O ]`;
+      music.play();
     }
-music.play()
+    document.querySelector(
+      ".part1"
+    ).style.cssText = ` animation: onload .5s linear;
+    transform: scale(0);
+`;
   };
 });
 
@@ -95,7 +103,11 @@ right.forEach((e) => {
         ".chose .countainer h2"
       ).innerHTML = `Turn Off [ X ]`;
     }
-music.play()
+    music.play();
+    document.querySelector(
+      ".part1"
+    ).style.cssText = ` animation: onload .5s linear;
+ transform: scale(0);`;
   };
 });
 
@@ -127,7 +139,8 @@ one.addEventListener(
         div2.className === `X` &&
         div3.className === `X`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`x`, +coX.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -136,7 +149,8 @@ one.addEventListener(
         div2.className === `circle` &&
         div3.className === `circle`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`circle`, +coO.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -148,7 +162,8 @@ one.addEventListener(
         div4.className === `X` &&
         div7.className === `X`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`x`, +coX.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -157,7 +172,8 @@ one.addEventListener(
         div4.className === `circle` &&
         div7.className === `circle`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`circle`, +coO.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -168,7 +184,8 @@ one.addEventListener(
         div5.className === `X` &&
         div9.className === `X`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`x`, +coX.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -177,7 +194,8 @@ one.addEventListener(
         div5.className === `circle` &&
         div9.className === `circle`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`circle`, +coO.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
 
@@ -199,11 +217,28 @@ one.addEventListener(
       if (div1.className === `X`) {
         window.localStorage.setItem(`input`, `circle`);
       }
+      if (
+        (div1.className === `circle` || div1.className === `X`) &&
+        (div2.className === `circle` || div2.className === `X`) &&
+        (div3.className === `circle` || div3.className === `X`) &&
+        (div4.className === `circle` || div4.className === `X`) &&
+        (div5.className === `circle` || div5.className === `X`) &&
+        (div6.className === `circle` || div6.className === `X`) &&
+        (div7.className === `circle` || div7.className === `X`) &&
+        (div8.className === `circle` || div8.className === `X`) &&
+        (div9.className === `circle` || div9.className === `X`)
+      ) {
+        window.location.reload();
+      }
+      //      if(document.querySelector(".winner .card h2").innerHTML ===`palyer [ X ] winner`){
+      // // coX.innerHTML=0;
+      // // console.log(`true`)
+      // // window.sessionStorage.setItem(`x`,+coX.innerHTML+5)
+      //      }
     }
   },
   { once: true }
 );
-
 two.addEventListener(
   "click",
   function () {
@@ -232,7 +267,8 @@ two.addEventListener(
         div2.className === `X` &&
         div3.className === `X`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`x`, +coX.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -241,7 +277,8 @@ two.addEventListener(
         div2.className === `circle` &&
         div3.className === `circle`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`circle`, +coO.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -252,7 +289,8 @@ two.addEventListener(
         div5.className === `X` &&
         div8.className === `X`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`x`, +coX.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -261,7 +299,8 @@ two.addEventListener(
         div5.className === `circle` &&
         div8.className === `circle`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`circle`, +coO.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -282,6 +321,19 @@ two.addEventListener(
         document.querySelector(
           ".winner .card h2"
         ).innerHTML = `palyer [ X ] winner`;
+      }
+      if (
+        (div1.className === `circle` || div1.className === `X`) &&
+        (div2.className === `circle` || div2.className === `X`) &&
+        (div3.className === `circle` || div3.className === `X`) &&
+        (div4.className === `circle` || div4.className === `X`) &&
+        (div5.className === `circle` || div5.className === `X`) &&
+        (div6.className === `circle` || div6.className === `X`) &&
+        (div7.className === `circle` || div7.className === `X`) &&
+        (div8.className === `circle` || div8.className === `X`) &&
+        (div9.className === `circle` || div9.className === `X`)
+      ) {
+        window.location.reload();
       }
     }
   },
@@ -315,7 +367,8 @@ three.addEventListener(
         div2.className === `X` &&
         div3.className === `X`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`x`, +coX.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -324,7 +377,8 @@ three.addEventListener(
         div2.className === `circle` &&
         div3.className === `circle`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`circle`, +coO.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -335,7 +389,8 @@ three.addEventListener(
         div6.className === `X` &&
         div9.className === `X`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`x`, +coX.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -344,7 +399,8 @@ three.addEventListener(
         div6.className === `circle` &&
         div9.className === `circle`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`circle`, +coO.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -355,7 +411,8 @@ three.addEventListener(
         div5.className === `X` &&
         div7.className === `X`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`x`, +coX.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -364,7 +421,8 @@ three.addEventListener(
         div5.className === `circle` &&
         div7.className === `circle`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`circle`, +coO.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -385,6 +443,19 @@ three.addEventListener(
         document.querySelector(
           ".winner .card h2"
         ).innerHTML = `palyer [ X ] winner`;
+      }
+      if (
+        (div1.className === `circle` || div1.className === `X`) &&
+        (div2.className === `circle` || div2.className === `X`) &&
+        (div3.className === `circle` || div3.className === `X`) &&
+        (div4.className === `circle` || div4.className === `X`) &&
+        (div5.className === `circle` || div5.className === `X`) &&
+        (div6.className === `circle` || div6.className === `X`) &&
+        (div7.className === `circle` || div7.className === `X`) &&
+        (div8.className === `circle` || div8.className === `X`) &&
+        (div9.className === `circle` || div9.className === `X`)
+      ) {
+        window.location.reload();
       }
     }
   },
@@ -418,7 +489,8 @@ four.addEventListener(
         div5.className === `X` &&
         div6.className === `X`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`x`, +coX.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -427,7 +499,8 @@ four.addEventListener(
         div5.className === `circle` &&
         div6.className === `circle`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`circle`, +coO.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -438,7 +511,8 @@ four.addEventListener(
         div4.className === `X` &&
         div7.className === `X`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`x`, +coX.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -447,7 +521,8 @@ four.addEventListener(
         div4.className === `circle` &&
         div7.className === `circle`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`circle`, +coO.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -468,6 +543,19 @@ four.addEventListener(
         document.querySelector(
           ".winner .card h2"
         ).innerHTML = `palyer [ X ] winner`;
+      }
+      if (
+        (div1.className === `circle` || div1.className === `X`) &&
+        (div2.className === `circle` || div2.className === `X`) &&
+        (div3.className === `circle` || div3.className === `X`) &&
+        (div4.className === `circle` || div4.className === `X`) &&
+        (div5.className === `circle` || div5.className === `X`) &&
+        (div6.className === `circle` || div6.className === `X`) &&
+        (div7.className === `circle` || div7.className === `X`) &&
+        (div8.className === `circle` || div8.className === `X`) &&
+        (div9.className === `circle` || div9.className === `X`)
+      ) {
+        window.location.reload();
       }
     }
   },
@@ -500,7 +588,8 @@ five.addEventListener(
         div5.className === `X` &&
         div6.className === `X`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`x`, +coX.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -509,7 +598,8 @@ five.addEventListener(
         div5.className === `circle` &&
         div6.className === `circle`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`circle`, +coO.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -520,7 +610,8 @@ five.addEventListener(
         div5.className === `X` &&
         div8.className === `X`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`x`, +coX.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -529,7 +620,8 @@ five.addEventListener(
         div5.className === `circle` &&
         div8.className === `circle`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`circle`, +coO.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -540,7 +632,8 @@ five.addEventListener(
         div5.className === `X` &&
         div7.className === `X`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`x`, +coX.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -549,7 +642,8 @@ five.addEventListener(
         div5.className === `circle` &&
         div7.className === `circle`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`circle`, +coO.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -560,7 +654,8 @@ five.addEventListener(
         div5.className === `X` &&
         div9.className === `X`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`x`, +coX.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -569,7 +664,8 @@ five.addEventListener(
         div5.className === `circle` &&
         div9.className === `circle`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`circle`, +coO.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -590,6 +686,19 @@ five.addEventListener(
         document.querySelector(
           ".winner .card h2"
         ).innerHTML = `palyer [ X ] winner`;
+      }
+      if (
+        (div1.className === `circle` || div1.className === `X`) &&
+        (div2.className === `circle` || div2.className === `X`) &&
+        (div3.className === `circle` || div3.className === `X`) &&
+        (div4.className === `circle` || div4.className === `X`) &&
+        (div5.className === `circle` || div5.className === `X`) &&
+        (div6.className === `circle` || div6.className === `X`) &&
+        (div7.className === `circle` || div7.className === `X`) &&
+        (div8.className === `circle` || div8.className === `X`) &&
+        (div9.className === `circle` || div9.className === `X`)
+      ) {
+        window.location.reload();
       }
     }
   },
@@ -623,7 +732,8 @@ six.addEventListener(
         div5.className === `X` &&
         div6.className === `X`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`x`, +coX.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -632,7 +742,8 @@ six.addEventListener(
         div5.className === `circle` &&
         div6.className === `circle`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`circle`, +coO.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -643,7 +754,8 @@ six.addEventListener(
         div6.className === `X` &&
         div9.className === `X`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`x`, +coX.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -652,7 +764,8 @@ six.addEventListener(
         div6.className === `circle` &&
         div9.className === `circle`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`circle`, +coO.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -673,6 +786,19 @@ six.addEventListener(
         document.querySelector(
           ".winner .card h2"
         ).innerHTML = `palyer [ X ] winner`;
+      }
+      if (
+        (div1.className === `circle` || div1.className === `X`) &&
+        (div2.className === `circle` || div2.className === `X`) &&
+        (div3.className === `circle` || div3.className === `X`) &&
+        (div4.className === `circle` || div4.className === `X`) &&
+        (div5.className === `circle` || div5.className === `X`) &&
+        (div6.className === `circle` || div6.className === `X`) &&
+        (div7.className === `circle` || div7.className === `X`) &&
+        (div8.className === `circle` || div8.className === `X`) &&
+        (div9.className === `circle` || div9.className === `X`)
+      ) {
+        window.location.reload();
       }
     }
   },
@@ -706,7 +832,8 @@ seven.addEventListener(
         div8.className === `X` &&
         div9.className === `X`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`x`, +coX.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -715,10 +842,12 @@ seven.addEventListener(
         div8.className === `circle` &&
         div9.className === `circle`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`circle`, +coO.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
+
       //first
       //second
       if (
@@ -726,7 +855,8 @@ seven.addEventListener(
         div4.className === `X` &&
         div7.className === `X`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`x`, +coX.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -735,7 +865,8 @@ seven.addEventListener(
         div4.className === `circle` &&
         div7.className === `circle`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`circle`, +coO.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -746,7 +877,8 @@ seven.addEventListener(
         div5.className === `X` &&
         div7.className === `X`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`x`, +coX.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -755,7 +887,8 @@ seven.addEventListener(
         div5.className === `circle` &&
         div7.className === `circle`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`circle`, +coO.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -776,6 +909,19 @@ seven.addEventListener(
         document.querySelector(
           ".winner .card h2"
         ).innerHTML = `palyer [ X ] winner`;
+      }
+      if (
+        (div1.className === `circle` || div1.className === `X`) &&
+        (div2.className === `circle` || div2.className === `X`) &&
+        (div3.className === `circle` || div3.className === `X`) &&
+        (div4.className === `circle` || div4.className === `X`) &&
+        (div5.className === `circle` || div5.className === `X`) &&
+        (div6.className === `circle` || div6.className === `X`) &&
+        (div7.className === `circle` || div7.className === `X`) &&
+        (div8.className === `circle` || div8.className === `X`) &&
+        (div9.className === `circle` || div9.className === `X`)
+      ) {
+        window.location.reload();
       }
     }
   },
@@ -809,7 +955,8 @@ eight.addEventListener(
         div8.className === `X` &&
         div9.className === `X`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`x`, +coX.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -818,7 +965,8 @@ eight.addEventListener(
         div8.className === `circle` &&
         div9.className === `circle`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`circle`, +coO.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -829,7 +977,8 @@ eight.addEventListener(
         div5.className === `X` &&
         div8.className === `X`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`x`, +coX.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -838,7 +987,8 @@ eight.addEventListener(
         div5.className === `circle` &&
         div8.className === `circle`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`circle`, +coO.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -859,6 +1009,19 @@ eight.addEventListener(
         document.querySelector(
           ".winner .card h2"
         ).innerHTML = `palyer [ X ] winner`;
+      }
+      if (
+        (div1.className === `circle` || div1.className === `X`) &&
+        (div2.className === `circle` || div2.className === `X`) &&
+        (div3.className === `circle` || div3.className === `X`) &&
+        (div4.className === `circle` || div4.className === `X`) &&
+        (div5.className === `circle` || div5.className === `X`) &&
+        (div6.className === `circle` || div6.className === `X`) &&
+        (div7.className === `circle` || div7.className === `X`) &&
+        (div8.className === `circle` || div8.className === `X`) &&
+        (div9.className === `circle` || div9.className === `X`)
+      ) {
+        window.location.reload();
       }
     }
   },
@@ -892,7 +1055,8 @@ nine.addEventListener(
         div8.className === `X` &&
         div9.className === `X`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`x`, +coX.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -901,7 +1065,8 @@ nine.addEventListener(
         div8.className === `circle` &&
         div9.className === `circle`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`circle`, +coO.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -912,7 +1077,8 @@ nine.addEventListener(
         div6.className === `X` &&
         div9.className === `X`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`x`, +coX.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -921,7 +1087,8 @@ nine.addEventListener(
         div6.className === `circle` &&
         div9.className === `circle`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`circle`, +coO.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -932,7 +1099,8 @@ nine.addEventListener(
         div5.className === `X` &&
         div9.className === `X`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`x`, +coX.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -941,7 +1109,8 @@ nine.addEventListener(
         div5.className === `circle` &&
         div9.className === `circle`
       ) {
-        winner.style.cssText = `animation: scale 1.5s alternate;
+        window.sessionStorage.setItem(`circle`, +coO.innerHTML + 5);
+        winner.style.cssText = `animation: scale .5s alternate;
     transform: scale(1);
     display: flex;`;
       }
@@ -962,10 +1131,24 @@ nine.addEventListener(
           ".winner .card h2"
         ).innerHTML = `palyer [ X ] winner`;
       }
+      if (
+        (div1.className === `circle` || div1.className === `X`) &&
+        (div2.className === `circle` || div2.className === `X`) &&
+        (div3.className === `circle` || div3.className === `X`) &&
+        (div4.className === `circle` || div4.className === `X`) &&
+        (div5.className === `circle` || div5.className === `X`) &&
+        (div6.className === `circle` || div6.className === `X`) &&
+        (div7.className === `circle` || div7.className === `X`) &&
+        (div8.className === `circle` || div8.className === `X`) &&
+        (div9.className === `circle` || div9.className === `X`)
+      ) {
+        window.location.reload();
+      }
     }
   },
   { once: true }
 );
+
 let darkMode = document.getElementById("dark-mode");
 let switchee = document.getElementById("switch");
 darkMode.onclick = function () {
@@ -973,35 +1156,25 @@ darkMode.onclick = function () {
   document.body.classList.toggle(`dark`);
   header.style.cssText = `box-shadow:unset`;
   darkMode.classList.toggle("white");
-  document.querySelector(".draw").classList.toggle("draw-toggle");
-  document.querySelector(".draw-div").classList.toggle("draw-div-toggle");
+  document.querySelector(".clear button").classList.toggle("clearToggle");
+  document
+    .querySelector(".score .countainer")
+    .classList.toggle("scoreCountainerToggle");
+  document
+    .querySelector(".co-o")
+    .classList.toggle("scoreCountainerCounterToggle");
+  document
+    .querySelector(".co-x")
+    .classList.toggle("scoreCountainerCounterToggle");
+  document.querySelector(".chose .countainer h2").classList.toggle("choseCountainerH2Toggle");
+ 
 };
-
 button.onclick = function () {
   winner.style.cssText = `display:flex;
   animation: onload .2s linear;
   `;
   window.location.reload();
 };
-
-//draw-case
-let draw = document.querySelector(".draw");
-
-draw.addEventListener("click", function () {
-  if (
-    (div1.className === `circle` || div1.className === `X`) &&
-    (div2.className === `circle` || div2.className === `X`) &&
-    (div3.className === `circle` || div3.className === `X`) &&
-    (div4.className === `circle` || div4.className === `X`) &&
-    (div5.className === `circle` || div5.className === `X`) &&
-    (div6.className === `circle` || div6.className === `X`) &&
-    (div7.className === `circle` || div7.className === `X`) &&
-    (div8.className === `circle` || div8.className === `X`) &&
-    (div9.className === `circle` || div9.className === `X`)
-  ) {
-    window.location.reload();
-  }
-});
 
 let play2 = document.querySelector(".play");
 let pause = document.querySelector(".pause");
@@ -1012,3 +1185,22 @@ play2.onclick = function () {
 pause.onclick = function () {
   music.pause();
 };
+coX.innerHTML = window.sessionStorage.getItem("x");
+coO.innerHTML = window.sessionStorage.getItem("circle");
+
+document.querySelector(".clear button").addEventListener("click", function () {
+  coX.innerHTML = "";
+  coO.innerHTML = "";
+  window.sessionStorage.removeItem('x')
+  window.sessionStorage.removeItem('circle')
+});
+
+// if(document.body.classList.contains('dark')===true){
+//   window.localStorage.setItem('backGround',`#333`);
+//   document.body.style.backgroundColor=`${window.localStorage.getItem('backGround')}`
+// }
+// if(document.body.classList.contains('dark')===false){
+//   window.localStorage.setItem('backGround',`#fff`);
+//   document.body.style.backgroundColor=`${window.localStorage.getItem('backGround')}`
+// }
+// document.body.style.backgroundColor=`${window.localStorage.getItem('backGround')}`
